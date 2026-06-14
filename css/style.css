@@ -2,7 +2,6 @@
     --bg-primary: #0a0a0a;
     --bg-secondary: #111111;
     --bg-card: #181818;
-    --bg-card-hover: #1f1f1f;
     --accent: #EF233C;
     --accent-hover: #D71F36;
     --accent-glow: rgba(239, 35, 60, 0.25);
@@ -11,7 +10,6 @@
     --text-secondary: #9ca3af;
     --text-muted: #6b7280;
     --border: #222222;
-    --border-light: #2a2a2a;
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --max-width: 1200px;
     --nav-height: 70px;
@@ -50,10 +48,6 @@ a {
     text-decoration: none;
 }
 
-ul {
-    list-style: none;
-}
-
 .container {
     width: 100%;
     max-width: var(--max-width);
@@ -90,29 +84,6 @@ ul {
     background: radial-gradient(circle, rgba(239, 35, 60, 0.15) 0%, transparent 70%);
     bottom: -10%;
     right: -5%;
-}
-
-/* ─── Scroll Reveal ─── */
-
-.reveal {
-    opacity: 1;
-}
-
-.reveal--bottom {
-    transform: translateY(0);
-}
-
-.reveal--left {
-    transform: translateX(0);
-}
-
-.reveal--right {
-    transform: translateX(0);
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translate(0, 0);
 }
 
 /* ─── Newsletter Hero ─── */
@@ -232,60 +203,6 @@ ul {
     font-size: 0.75rem;
     color: var(--text-muted);
     margin-top: 6px;
-}
-
-/* ─── Benefits ─── */
-
-.newsletter-benefits {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 24px;
-    max-width: 480px;
-}
-
-.newsletter-benefit {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.newsletter-benefit svg {
-    flex-shrink: 0;
-}
-
-/* ─── Testimonial ─── */
-
-.newsletter-testimonial {
-    margin-top: 28px;
-    padding: 16px 20px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    max-width: 480px;
-}
-
-.newsletter-testimonial .quote-mark {
-    opacity: 0.25;
-    margin-bottom: 4px;
-    display: block;
-}
-
-.newsletter-testimonial p {
-    font-size: 0.9rem;
-    color: var(--text-primary);
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-.newsletter-testimonial-author {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-weight: 600;
 }
 
 /* ─── Trust Strip ─── */
@@ -580,18 +497,6 @@ ul {
 
     .newsletter-form {
         margin: 0 auto;
-    }
-
-    .newsletter-benefits {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-    }
-
-    .newsletter-testimonial {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
     }
 
     .newsletter-trust {
