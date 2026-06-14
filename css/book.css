@@ -332,6 +332,24 @@
     gap: 24px;
 }
 
+.chapter-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(239, 35, 60, 0.1);
+    margin-bottom: 12px;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.chapter-card:hover .chapter-icon {
+    background: rgba(239, 35, 60, 0.18);
+    transform: scale(1.05);
+}
+
 .chapter-card {
     background: var(--bg-card);
     border: 1px solid var(--border);

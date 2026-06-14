@@ -13,29 +13,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ─── Mobile Menu ─── */
 
-    hamburger.addEventListener('click', () => {
-        const isActive = navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', isActive);
-        document.body.style.overflow = isActive ? 'hidden' : '';
-    });
-
-    navLinkEls.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            const isActive = navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
-    });
+
+        navLinkEls.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 
     /* ─── Navbar Scroll Effects ─── */
 
     function updateNavbar() {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
     }
 
     function updateActiveLink() {
+        if (navLinkEls.length === 0) return;
         const scrollPos = window.scrollY + 120;
         let currentId = 'hero';
 
@@ -54,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateBackToTop() {
-        backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
+        if (backToTop) backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
     }
 
     function onScroll() {
@@ -113,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.5 });
 
-    statNumbers.forEach(el => counterObserver.observe(el));
+    if (statNumbers.length > 0) statNumbers.forEach(el => counterObserver.observe(el));
 
     function animateCounter(el, target) {
         const duration = 2000;
