@@ -28,6 +28,30 @@
     font-size: 1rem;
 }
 
+.book-hero-text .btn-primary {
+    background: linear-gradient(135deg, #EF233C, #B71C1C);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.book-hero-text .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.book-hero-text .btn-primary:hover::after {
+    left: 100%;
+}
+
 .hero-micro {
     text-align: left;
 }
@@ -175,8 +199,13 @@
 }
 
 @keyframes scrollStrip {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .trust-strip-label {
@@ -343,6 +372,12 @@
     color: rgba(239, 35, 60, 0.15);
     line-height: 1;
     margin-bottom: 12px;
+    transition: var(--transition);
+}
+
+.chapter-card:hover .chapter-number {
+    color: var(--accent);
+    transform: scale(1.05) translateX(4px);
 }
 
 .chapter-card h3 {
@@ -552,6 +587,24 @@
     gap: 24px;
 }
 
+.bonus-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(239, 35, 60, 0.1);
+    margin: 0 auto 16px;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.bonus-card:hover .bonus-icon {
+    background: rgba(239, 35, 60, 0.18);
+    transform: scale(1.05);
+}
+
 .bonus-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -614,8 +667,15 @@
 }
 
 @keyframes floatBox {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 .pricing-badge {
@@ -679,8 +739,15 @@
 }
 
 @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
-    50% { box-shadow: 0 0 0 16px rgba(239, 35, 60, 0); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 var(--accent-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 0 16px rgba(239, 35, 60, 0);
+    }
 }
 
 .pricing-micro {
@@ -841,7 +908,7 @@
     opacity: 0;
     transform: scale(0.92) translateY(20px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal--scale.visible {

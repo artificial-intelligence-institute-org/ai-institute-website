@@ -40,6 +40,43 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateCountdown, 1000);
     }
 
+    /* ─── Problem Stat Counter ─── */
+
+    const statNumbers = document.querySelectorAll('.problem-stat-number');
+
+    const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.count, 10);
+                animateCounter(el, target);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => counterObserver.observe(el));
+
+    function animateCounter(el, target) {
+        const duration = 1800;
+        const start = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(eased * target);
+            el.textContent = current + '%';
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = target + '%';
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
     /* ─── FAQ Accordion ─── */
 
     const faqItems = document.querySelectorAll('.faq-item');
