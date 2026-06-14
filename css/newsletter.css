@@ -485,14 +485,8 @@ ul {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #EF233C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.6rem;
-    font-weight: 800;
-    color: #fff;
     flex-shrink: 0;
+    object-fit: cover;
 }
 
 .phone-sender-name {
@@ -680,7 +674,6 @@ ul {
     .phone-avatar {
         width: 26px;
         height: 26px;
-        font-size: 0.55rem;
     }
 
     .phone-sender-name {
