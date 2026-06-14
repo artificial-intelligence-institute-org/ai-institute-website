@@ -188,6 +188,7 @@ ul {
     font-size: 1rem;
     font-family: inherit;
     outline: none;
+    border-color: var(--accent);
 }
 
 .newsletter-input-group input:focus {
